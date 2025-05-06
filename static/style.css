@@ -81,7 +81,7 @@ button:hover {
 }
 
 .piscar-verde {
-  animation: piscarVerde 5.0s ease-in-out;
+  animation: piscarVerde 3.0s ease-in-out;
   border-radius: 10px;
 }
 
@@ -89,3 +89,13 @@ button:hover {
   0%   { background-color: #d4edda; }
   100% { background-color: transparent; }
 }
+.piscar-vermelho {
+  animation: piscarVermelho 3.0s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes piscarVermelho {
+  0%   { background-color: #eca3a3; }
+  100% { background-color: transparent; }
+}
+
