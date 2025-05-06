@@ -6,30 +6,33 @@ function botao(){
   document.getElementById('chutar').style.display = 'none'
 }
 
-function aplicarDestaque(id) {
-  const elemento = document.getElementById(id)
-  if (!elemento) return
-  elemento.classList.remove("piscar-verde")
-  void elemento.offsetWidth
-  elemento.classList.add("piscar-verde")
-}
-
 function perder(){
+  const dicaElem = document.getElementById('dicaQuantidade')
   document.getElementById('dicaQuantidade').textContent = 'Você perdeu! O número secreto era ' + numeroRandom
-  aplicarDestaque('dicaQuantidade')
+
+  dicaElem.classList.remove("piscar-vermelho")
+  void dicaElem.offsetWidth
+  dicaElem.classList.add("piscar-vermelho")
   
   document.getElementById('dica').textContent = ''
 
   botao()
 }
 
-function win(){
+function win() {
   document.getElementById('dica').textContent = ''
   document.getElementById('dicaQuantidade').textContent = ''
-  document.getElementById('win').textContent = '🎉 Parabéns! Você acertou!'
-  aplicarDestaque('win')
+  
+  const winElem = document.getElementById('win')
+  winElem.textContent = '🎉 Parabéns! Você acertou!'
+
+  winElem.classList.remove("piscar-verde")
+  void winElem.offsetWidth // força reflow
+  winElem.classList.add("piscar-verde")
 
   botao()
+
+  return
 }
 
 function reiniciarJogo() {
