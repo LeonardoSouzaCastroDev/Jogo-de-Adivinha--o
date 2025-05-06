@@ -15,6 +15,8 @@ function adivinharNumero() {
     document.getElementById('dica').textContent = "O número secreto é maior"
   } else {
     document.getElementById('win').textContent = '🎉 Parabéns! Você acertou!'
+    document.getElementById('dica').textContent = ''
+    document.getElementById('dicaQuantidade').textContent = ''
     aplicarDestaque('win')
     return
   }
