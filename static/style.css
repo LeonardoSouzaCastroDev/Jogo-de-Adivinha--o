@@ -81,7 +81,8 @@ button:hover {
 }
 
 .piscar-verde {
-  animation: piscarVerde 1s ease-in-out;
+  animation: piscarVerde 5.0s ease-in-out;
+  border-radius: 10px;
 }
 
 @keyframes piscarVerde {
