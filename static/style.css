@@ -1,0 +1,90 @@
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Estilo do corpo */
+body {
+  background-color: #f0f8ff;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container principal */
+main {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Títulos */
+h1, h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Parágrafos */
+p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+/* Seção do input */
+section {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+input[type="number"] {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 80px;
+  text-align: center;
+}
+
+/* Botão arredondado */
+button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Dica e resultado */
+#dica, #dicaQuantidade, #win {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.piscar-verde {
+  animation: piscarVerde 1s ease-in-out;
+}
+
+@keyframes piscarVerde {
+  0%   { background-color: #d4edda; }
+  100% { background-color: transparent; }
+}
