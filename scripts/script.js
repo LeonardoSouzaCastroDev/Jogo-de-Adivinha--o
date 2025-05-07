@@ -55,7 +55,7 @@ function win() {
 
 function reiniciarJogo() {
   numeroRandom = Math.floor(Math.random() * 101)
-  dicas = 1
+  tentativasRestantes = 10
 
   limparInterface()
 
