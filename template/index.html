@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/style.css">
-  <script src="/scripts/script.js"></script>
-  <title>Jogo de Adivinhação</title>
-</head>
-<body>
-  <main>
-    <h1>Jogo de Adivinhação</h1>
-    <p>O jogo irá gerar um número aleatório entre 1 e 100, e o jogador terá que adivinhar qual é esse número.</p>
-    <p>O jogador irá ganhar dicas a cada chute!</p> 
-    <p>O jogador tem no maximo 10 tentivas</p>
-    <section>
-      <label for="numero">Número: </label>
-      <input type="number" id="numero">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Jogo de Adivinhação</title>
+  </head>
+  <body>
+    <main>
+      <h1>Jogo de Adivinhação</h1>
+      <p>O jogo irá gerar um número aleatório entre 1 e 100, e o jogador terá que adivinhar qual é esse número.</p>
+      <p>O jogador irá ganhar dicas a cada chute!</p> 
+      <p>O jogador tem no maximo 10 tentivas</p>
+      <section>
+        <label for="numero">Número: </label>
+        <input type="number" id="numero">
 
-      <button id='chutar' onclick="adivinharNumero()">Chutar</button>
-    </section>
-    <p id="dica"></p>
-    <p id="dicaQuantidade"></p>
-    <h2 id="win"></h2>
-    <button id='reiniciar' onclick="reiniciarJogo()" style="display: none">Jogar novamente</button>
-  </main>
-</body>
+        <button id='chutar' onclick="adivinharNumero()">Chutar</button>
+      </section>
+      <p id="dica"></p>
+      <p id="dicaQuantidade"></p>
+      <h2 id="win"></h2>
+      <button id='reiniciar' onclick="reiniciarJogo()" style="display: none">Jogar novamente</button>
+    </main>
+    <script src="/scripts/script.js"></script>
+  </body>
 </html>
