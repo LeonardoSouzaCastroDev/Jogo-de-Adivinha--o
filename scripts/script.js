@@ -1,74 +1,92 @@
 let numeroRandom = Math.floor(Math.random() * 101)
-let dicas = 1
+let tentativasRestantes = 10
 
-function botao(){
-  document.getElementById('reiniciar').style.display = 'inline-block'
-  document.getElementById('chutar').style.display = 'none'
+const btnReiniciar = document.getElementById('reiniciar')
+const btnChutar = document.getElementById('chutar')
+const dicaQuant = document.getElementById('dicaQuantidade')
+const winElem = document.getElementById('win')
+const dica = document.getElementById('dica')
+const number = document.getElementById('numero')
+
+function animarClasseComReflow(elemento, classe){
+  elemento.classList.remove(classe)
+  void elemento.offsetWidth
+  elemento.classList.add(classe)
 }
+
+
+function limparInterface(){
+  number.value = ''
+  winElem.textContent = ''
+  dicaQuant.textContent = ''
+  dica.textContent = ''
+}
+
+
+function mostrarBotaoReiniciar(){
+  btnReiniciar.style.display = 'inline-block'
+  btnChutar.style.display = 'none'
+}
+
 
 function perder(){
-  const dicaElem = document.getElementById('dicaQuantidade')
-  document.getElementById('dicaQuantidade').textContent = 'Você perdeu! O número secreto era ' + numeroRandom
+  limparInterface()
 
-  dicaElem.classList.remove("piscar-vermelho")
-  void dicaElem.offsetWidth
-  dicaElem.classList.add("piscar-vermelho")
-  
-  document.getElementById('dica').textContent = ''
+  dicaQuant.textContent = 'Você perdeu! O número secreto era ' + numeroRandom
 
-  botao()
+  animarClasseComReflow(dicaQuant, 'piscar-vermelho')
+
+  mostrarBotaoReiniciar()
 }
 
+
 function win() {
-  document.getElementById('dica').textContent = ''
-  document.getElementById('dicaQuantidade').textContent = ''
-  
-  const winElem = document.getElementById('win')
+  limparInterface()
+
   winElem.textContent = '🎉 Parabéns! Você acertou!'
 
-  winElem.classList.remove("piscar-verde")
-  void winElem.offsetWidth // força reflow
-  winElem.classList.add("piscar-verde")
+  animarClasseComReflow(winElem, 'piscar-verde')
 
-  botao()
+  mostrarBotaoReiniciar()
 
   return
 }
+
 
 function reiniciarJogo() {
   numeroRandom = Math.floor(Math.random() * 101)
   dicas = 1
 
-  document.getElementById('numero').value = ''
-  document.getElementById('win').textContent = ''
-  document.getElementById('dicaQuantidade').textContent = ''
-  document.getElementById('reiniciar').style.display = 'none'
-  document.getElementById('chutar').style.display = 'inline-block'
+  limparInterface()
+
+  btnReiniciar.style.display = 'none'
+  btnChutar.style.display = 'inline-block'
 }
 
+
 function adivinharNumero() {
-  let palpiteJogador = parseFloat(document.getElementById('numero').value)
+  const palpiteJogador = parseFloat(number.value)
 
   if (isNaN(palpiteJogador) || palpiteJogador < 0 || palpiteJogador > 100) {
-    document.getElementById('dica').textContent = "Digite um número entre 0 e 100."
+    dica.textContent = "Digite um número entre 0 e 100."
     return
   }
 
   if (palpiteJogador > numeroRandom) {
-    document.getElementById('dica').textContent = "O número secreto é menor"
+    dica.textContent = "O número secreto é menor"
   } else if (palpiteJogador < numeroRandom) {
-    document.getElementById('dica').textContent = "O número secreto é maior"
+    dica.textContent = "O número secreto é maior"
   } else {
     win()
     return
   }
 
-  if (dicas >= 10) {
+  if ( tentativasRestantes <= 0) {
     perder()
     return
 
   } else {
-    document.getElementById('dicaQuantidade').textContent = `Dicas restantes: ${10 - dicas}`
-  dicas++
+    dicaQuant.textContent = `Dicas restantes: ${tentativasRestantes}`
+  tentativasRestantes--
   }
 }
